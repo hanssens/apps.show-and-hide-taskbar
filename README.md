@@ -1,7 +1,7 @@
 Show and Hide Taskbar for Windows
 =====================
 
-This simple code sample demonstrates the **showing and hiding of the taskbar and start menu** in Windows, using C# (and some nasty Win32 api's).
+This simple code sample demonstrates the **showing and hiding of the taskbar and start menu** in Windows, using C# (and some nasty Win32 api's). Oh, and it also includes a handy command line utility, if you're just not into code today.
 
 There are several reasons why you could want this. I thought of some:
 
