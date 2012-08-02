@@ -24,6 +24,7 @@ Easy as cake.
 Of course, if you're not the smallest bit interested in using the code, you can always simply use the **ShowAndHideTaskbar.exe** application itself. Here's how:
 
 * Running `ShowAndHideTaskbar.exe` from the command line demonstrates the working in a simple command line application
-
-
+* use `-hide` to hide the taskbar
+* use `-show` to show the taskbar
+* use `-help` for more information (redirecting to the README file)
 
