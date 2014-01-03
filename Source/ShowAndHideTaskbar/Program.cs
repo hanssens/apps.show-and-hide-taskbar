@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 
@@ -9,16 +10,29 @@ namespace ShowAndHideTaskbar
     {
         static void Main(string[] arguments)
         {
-            // Cast the arguments to lowercase
+            TaskBarManager manager = null;
+
+            // cast the arguments to lowercase
             var args = arguments.Select(a => a.ToLower());
 
+            // determine the specific implementation, based on the windows type
+            /*
+            if (args.Contains("-win8"))
+                manager = new Windows8TaskBarManager();
+            else
+                manager = new Windows7TaskBarManager();
+             * **************************************************************************************************************************************************************************
+            */
+            manager = new Windows8TaskBarManager();
+
+
             if (args.Contains("-hide")) {
-                TaskbarManager.HideTaskbar();
+                manager.HideTaskbar();
                 return;
             }
 
             if (args.Contains("-show")) {
-                TaskbarManager.ShowTaskbar();
+                manager.ShowTaskbar();
                 return;
             }
 
@@ -27,7 +41,6 @@ namespace ShowAndHideTaskbar
                 return;
             }
 
-
             /*
              * No arguments provided. Run the simple demo
              */
@@ -35,12 +48,12 @@ namespace ShowAndHideTaskbar
             Console.WriteLine("Running Show-And-Hide-Taskbar");
             Console.WriteLine("use -help for more information\r\nuse -hide to hide the taskbar\r\nuse -show to show the taskbar again\r\n\r\n");
 
-            TaskbarManager.HideTaskbar();
+            manager.HideTaskbar();
 
             Console.WriteLine("The taskbar and startmenu should be hidden now. Press any key to restore them.");
             Console.ReadKey();
 
-            TaskbarManager.ShowTaskbar();
+            manager.ShowTaskbar();
 
             Console.WriteLine("The taskbar and startmenu have been restored! Press any key to quit...");
             Console.ReadKey();
